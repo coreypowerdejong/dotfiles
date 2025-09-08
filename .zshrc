@@ -1,2 +1,2 @@
 source ~/.alias
-source ~/.vimrc
+source ~/.path
