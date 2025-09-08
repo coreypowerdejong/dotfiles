@@ -1,0 +1,4 @@
+alias c="clear"
+alias so="source ~/.zshrc"
+alias mcd='function f() {mkdir -p $1 && cd $1};f'
+alias la="ls -lah"

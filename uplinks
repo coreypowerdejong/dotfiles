@@ -1,0 +1,6 @@
+setopt extendedglob
+setopt dotglob
+for file in ~/dotfiles/*~*.swp; ln -sn $file ~/$file:t;
+#for file in ${0:a:h}/*~*.swp; echo ~/$file:t;
+unsetopt extendedglob
+unsetopt dotglob
