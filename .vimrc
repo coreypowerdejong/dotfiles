@@ -1,3 +1,33 @@
+set nocompatible              " required
+filetype off                  " required
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+Plugin 'vim-scripts/indentpython.vim'
+Bundle 'Valloric/YouCompleteMe'
+Plugin 'vim-syntastic/syntastic'
+Plugin 'nvie/vim-flake8'
+Plugin 'morhetz/gruvbox'
+
+" add all your plugins here (note older versions of Vundle
+" used Bundle instead of Plugin)
+
+" ...
+
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+let g:gruvbox_contrast_dark = 'hard'
+colorscheme gruvbox
+
 " Disable compatibility with vi which can cause unexpected issues.
 set nocompatible
 
@@ -11,6 +41,7 @@ filetype plugin on
 filetype indent on
 
 " Turn syntax highlighting on.
+let python_highlight_all=1
 syntax on
 
 " Hybrid line numbers
@@ -69,3 +100,39 @@ set wildmode=list:longest
 " There are certain files that we would never want to edit with Vim.
 " Wildmenu will ignore files with these extensions.
 set wildignore=*.docx,*.jpg,*.png,*.gif,*.pdf,*.pyc,*.exe,*.flv,*.img,*.xlsx
+
+" Set splits to default open below or to the right
+set splitbelow
+set splitright
+
+"split navigations
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
+
+" PEP 8 python indentation
+au BufNewFile, BufRead *.py
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
+
+" Mark bad whitespace
+au BufRead, BufNewFile *.py,*.pyw,*.c,*.h match BadWhitespace /\s\+$/
+
+" Set UTF-8 encoding
+set encoding=utf-8
+
+"python with virtualenv support
+py3 << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+  project_base_dir = os.environ['VIRTUAL_ENV']
+  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+  execfile(activate_this, dict(__file__=activate_this))
+EOF

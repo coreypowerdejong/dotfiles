@@ -1,1 +1,2 @@
 PATH=~/homebrew/bin:$PATH
+PATH=~/.local/bin:$PATH
