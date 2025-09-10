@@ -150,3 +150,6 @@ nmap <F6> :NERDTreeToggle<CR>
 
 " Airline config
 let g:airline#extensions#tabline#enabled = 1
+
+" Share vim clipboard with system
+set clipboard=unnamed
