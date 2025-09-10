@@ -1,2 +1,2 @@
-PATH=~/homebrew/bin:$PATH
+PATH=/opt/homebrew/bin:$PATH
 PATH=~/.local/bin:$PATH
