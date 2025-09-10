@@ -16,6 +16,8 @@ Plugin 'vim-syntastic/syntastic'
 Plugin 'nvie/vim-flake8'
 Plugin 'morhetz/gruvbox'
 Plugin 'preservim/nerdtree'
+Plugin 'vim-airline/vim-airline'
+Plugin 'tpope/vim-fugitive'
 
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
@@ -145,3 +147,6 @@ command SO source ~/.vimrc
 let NERDTreeIgnore=['\.pyc$', '\~$']
 let NERDTreeShowHidden=1
 nmap <F6> :NERDTreeToggle<CR>
+
+" Airline config
+let g:airline#extensions#tabline#enabled = 1
