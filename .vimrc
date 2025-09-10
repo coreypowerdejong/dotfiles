@@ -11,10 +11,11 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 Plugin 'vim-scripts/indentpython.vim'
-Bundle 'Valloric/YouCompleteMe'
+Bundle 'ycm-core/YouCompleteMe'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'nvie/vim-flake8'
 Plugin 'morhetz/gruvbox'
+Plugin 'preservim/nerdtree'
 
 " add all your plugins here (note older versions of Vundle
 " used Bundle instead of Plugin)
@@ -136,3 +137,11 @@ if 'VIRTUAL_ENV' in os.environ:
   activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
   execfile(activate_this, dict(__file__=activate_this))
 EOF
+
+" Aliases
+command SO source ~/.vimrc
+
+" ignore files in NERDTree
+let NERDTreeIgnore=['\.pyc$', '\~$']
+let NERDTreeShowHidden=1
+nmap <F6> :NERDTreeToggle<CR>
